@@ -341,7 +341,7 @@ tests=[ Test('string_length',
         syscall""",
         lambda i,o,r: r == 1),
  
-        Test('string_equals not equals',
+        Test('string_equals_not_equals',
              lambda v: """section .data
              str1: db '""" + v + """',0
              str2: db '""" + v + """!!',0
