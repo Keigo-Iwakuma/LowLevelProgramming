@@ -1,1 +1,5 @@
 **/*.o
+
+.python-version
+venv/
+**/*.ipynb
