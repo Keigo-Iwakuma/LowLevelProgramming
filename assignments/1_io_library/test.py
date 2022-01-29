@@ -442,7 +442,7 @@ inputs= {'string_length'
          : ["0", "1234567890987654321hehehey", "-1dasda", "-eedea", "-123123123", "1" ],
          'string_equals'            
          : ['ashdb asdhabs dahb', ' ', '', "asd" ],
-         'string_equals not equals' 
+         'string_equals_not_equals' 
          : ['ashdb asdhabs dahb', ' ', '', "asd" ]
 }
               
