@@ -1,9 +1,27 @@
 section .text
 
+
+global exit
+global string_length
+global print_string
+global print_char
+
+global print_newline
+global print_uint
+global print_int
+global read_char
+global read_word
+global parse_uint
+global parse_int
+global string_equals
+global string_copy
+
+
 exit:
    xor rdi, rdi
    mov rax, 60
    syscall
+
 
 string_length:
     xor rax, rax
@@ -16,6 +34,7 @@ string_length:
 
 .end:
     ret
+
 
 print_string:
     push rdi
@@ -34,9 +53,11 @@ print_char:
     pop rdi
     ret
 
+
 print_newline:
     mov rdi, 10
     jmp print_char
+
 
 print_uint:
     mov rax, rdi
@@ -61,6 +82,7 @@ print_uint:
     add rsp, 24
     ret
 
+
 print_int:
     test rdi, rdi
     jns print_uint
@@ -71,6 +93,7 @@ print_int:
     neg rdi
     jmp print_uint
 
+
 read_char:
     push 0
     xor rax, rax
@@ -80,6 +103,7 @@ read_char:
     syscall
     pop rax
     ret 
+
 
 read_word:
     push r14
@@ -140,6 +164,7 @@ read_word:
     pop r14
     ret
 
+
 ; rdi points to a string
 ; returns rax: number, rdx : length
 parse_uint:
@@ -164,6 +189,7 @@ parse_uint:
     mov rdx, rcx
     ret
 
+
 ; rdi points to a string
 ; returns rax: number, rdx : length
 parse_int:
@@ -186,6 +212,7 @@ parse_int:
     xor rax, rax
     ret
 
+
 string_equals:
     mov al, byte [rdi]
     cmp al, byte [rsi]
@@ -200,6 +227,7 @@ string_equals:
 .no:
     xor rax, rax
     ret
+
 
 string_copy:
     push rdi
